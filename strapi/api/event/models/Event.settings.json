@@ -1,0 +1,46 @@
+{
+  "connection": "default",
+  "collectionName": "events",
+  "info": {
+    "name": "event",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "required": true,
+      "type": "string"
+    },
+    "details": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "dinnerDate": {
+      "type": "date"
+    },
+    "friends": {
+      "collection": "user",
+      "via": "joinedEvents",
+      "dominant": true,
+      "plugin": "users-permissions"
+    },
+    "featured": {
+      "type": "boolean"
+    }
+  }
+}

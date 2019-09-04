@@ -1,0 +1,32 @@
+{
+  "connection": "default",
+  "collectionName": "bios",
+  "info": {
+    "name": "bio",
+    "description": "This is where you put your bio."
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "headline": {
+      "required": true,
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "author": {
+      "model": "user",
+      "via": "bio",
+      "plugin": "users-permissions"
+    }
+  }
+}
